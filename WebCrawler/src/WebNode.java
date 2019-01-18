@@ -16,8 +16,9 @@ public class WebNode {
     private boolean visited;
     private ArrayList<WebNode> children;
     private WebNode parent;
+    private ArrayList<String> urls;
 
-    public static final int maxSites = 100;
+    public static final int MAX_SITES = 100;
 
     WebNode(String url)
     {
@@ -27,13 +28,21 @@ public class WebNode {
         this.parent = null;
     }
 
-    public ArrayList<String> findUrls(WebNode rootNode)
+    public ArrayList<WebNode> getChildren() {
+        return children;
+    }
+
+    public void addChild(WebNode child)
     {
-        ArrayList<String> completeList = new ArrayList<>();
-        for (WebNode node : children)
-        {
-            completeList.addAll(findUrls(node));
-        }
-        return completeList;
+        children.add(child);
+    }
+
+    public ArrayList<String> getUrls() {
+        return urls;
+    }
+
+    public void setVisited(boolean arg)
+    {
+        this.visited = arg;
     }
 }
