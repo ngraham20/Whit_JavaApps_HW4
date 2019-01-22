@@ -6,6 +6,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,7 +22,9 @@ import java.util.stream.Collectors;
 public class WebNode {
 
     private String url;
+    private String html;
     private ArrayList<WebNode> children;
+    private BufferedReader rdr;
 
     public static final int MAX_SITES = 500;
     private static int total_nodes = 0;
@@ -63,20 +66,40 @@ public class WebNode {
         return url;
     }
 
-    public boolean findUrls() throws IOException {
+    public String getHtml()
+    {
+        return this.html;
+    }
+
+    public ArrayList<String> scrapeNodeFor(String expression) throws IOException {
+        ArrayList<String> results = new ArrayList<>();
+        BufferedReader rdr = new BufferedReader(new InputStreamReader((new URL(this.url).openStream())));
+        this.html = rdr.lines().collect(Collectors.joining());
+
+        Pattern pattern = Pattern.compile(expression);
+        Matcher matcher = pattern.matcher(this.html);
+        System.out.println("Scraping site: " + this.url);
+        while(matcher.find())
+        {
+            results.add(matcher.group(1));
+        }
+
+        return results;
+    }
+
+    public boolean findUrls() {
         if(total_nodes >= MAX_SITES)
         {
             return true;
         }
-        // regex for link href in html
-        Pattern pattern = Pattern.compile("<.*?href=\"(https:.*?)\"");
-
-        URL _url = new URL(this.url);
 
         try {
-            BufferedReader rdr = new BufferedReader(new InputStreamReader(_url.openStream()));
-            String html = rdr.lines().collect(Collectors.joining());
-            Matcher matcher = pattern.matcher(html);
+            BufferedReader rdr = new BufferedReader(new InputStreamReader(new URL(this.url).openStream()));
+            this.html = rdr.lines().collect(Collectors.joining());
+
+            // regex for link href in html
+            Pattern pattern = Pattern.compile("<.*?href=\"(https:.*?)\"");
+            Matcher matcher = pattern.matcher(this.html);
 
             System.out.println("Current Site: " + this.url);
             while (total_nodes < MAX_SITES && matcher.find()) {
@@ -90,13 +113,13 @@ public class WebNode {
                     continue;
                 }
                 WebNode newNode = new WebNode(url);
-                if(Crawler.visited.get(newNode) != null) // this node exists. Go find a new site to scan
+                if(Crawler.visitedNodes.contains(newNode)) // this node exists. Go find a new site to scan
                 {
                     continue;
                 }
-                System.out.println("Site(" + Integer.toString(WebNode.total_nodes +1) +") Found: " + url);
+                System.out.println("Site(" + (WebNode.total_nodes + 1) + ") Found: " + url);
                 WebNode.incrementNodeCount();
-                children.add(new WebNode(url));
+                addChild(new WebNode(url));
             }
         }
         catch(IOException e)

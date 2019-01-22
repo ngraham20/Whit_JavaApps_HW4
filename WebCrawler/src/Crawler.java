@@ -4,6 +4,7 @@
  */
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -16,8 +17,8 @@ import java.util.LinkedList;
 public class Crawler implements Runnable {
 
     private int numSitesVisited;
-    private ArrayList<WebNode> visitedNodes = new ArrayList<>();
-    public static HashMap<WebNode, Boolean> visited = new HashMap<>();
+    public static ArrayList<WebNode> visitedNodes = new ArrayList<>();
+    //public static HashMap<WebNode, Boolean> visited = new HashMap<>();
 
     Crawler()
     {
@@ -29,15 +30,19 @@ public class Crawler implements Runnable {
 
     }
 
-    public ArrayList<String> scrape(String expression)
-    {
+    public ArrayList<String> scrape(String expression) throws IOException {
+        ArrayList<String> results = new ArrayList<>();
+        for(WebNode node : visitedNodes)
+        {
+            results.addAll(node.scrapeNodeFor(expression));
+        }
         return new ArrayList<>();
     }
 
     private void resetVisited()
     {
         WebNode.setTotal_nodes(0);
-        visited = new HashMap<>();
+        //visited = new HashMap<>();
         visitedNodes = new ArrayList<>();
     }
 
@@ -46,38 +51,22 @@ public class Crawler implements Runnable {
         WebNode.incrementNodeCount(); // account for rootnode
         LinkedList<WebNode> currentLayer = new LinkedList<>();
         currentLayer.add(rootNode);
-        visited.put(rootNode, true);
+        //visited.put(rootNode, true);
         visitedNodes.add(rootNode);
         while (currentLayer.size() > 0)
         {
-            int numNodes = WebNode.getTotal_nodes();
             WebNode currentNode = currentLayer.pop();
             currentNode.findUrls();
             for (WebNode node : currentNode.getChildren())
             {
-                visited.put(node, true);
+                //visited.put(node, true);
                 visitedNodes.add(node);
                 currentLayer.add(node);
             }
         }
     }
 
-//    public void DFSNodeSearch(WebNode rootnode)
-//    {
-//        visitedNodes.add(rootnode);
-//
-//        if (numSitesVisited == WebNode.MAX_SITES)
-//        {
-//            return;
-//        }
-//
-//        for(WebNode node : rootnode.getChildren())
-//        {
-//            visitedNodes.add(node);
-//        }
-//    }
-
-    public HashMap<WebNode, Boolean> getVisitedNodes() {
-        return visited;
+    public ArrayList<WebNode> getVisitedNodes() {
+        return visitedNodes;
     }
 }
