@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -26,7 +27,7 @@ public class WebNode {
     private ArrayList<WebNode> children;
     private BufferedReader rdr;
 
-    public static final int MAX_SITES = 500;
+    public static final int MAX_SITES = 50;
     private static int total_nodes = 0;
 
     WebNode(String url)
@@ -73,15 +74,29 @@ public class WebNode {
 
     public ArrayList<String> scrapeNodeFor(String expression) throws IOException {
         ArrayList<String> results = new ArrayList<>();
-        BufferedReader rdr = new BufferedReader(new InputStreamReader((new URL(this.url).openStream())));
-        this.html = rdr.lines().collect(Collectors.joining());
 
-        Pattern pattern = Pattern.compile(expression);
-        Matcher matcher = pattern.matcher(this.html);
-        System.out.println("Scraping site: " + this.url);
-        while(matcher.find())
+        try {
+            BufferedReader rdr = new BufferedReader(new InputStreamReader((new URL(this.url).openStream())));
+            this.html = rdr.lines().collect(Collectors.joining());
+
+            Pattern pattern = Pattern.compile(expression);
+            Matcher matcher = pattern.matcher(this.html);
+            System.out.println("Scraping site: " + this.url);
+            while (matcher.find()) {
+                results.add(matcher.group(0));
+            }
+        }
+        catch(ProtocolException e)
         {
-            results.add(matcher.group(1));
+            System.out.println("[ProtocolException]: Redirected too many times. Skipping.");
+        }
+        catch(MalformedURLException e)
+        {
+            System.out.println("[MalformedURLException]: url error");
+        }
+        catch(IOException e)
+        {
+            System.out.println("[IOException]");
         }
 
         return results;
@@ -122,9 +137,19 @@ public class WebNode {
                 addChild(new WebNode(url));
             }
         }
+        catch(ProtocolException e)
+        {
+            System.out.println("[ProtocolException]: Redirected too many times. Skipping.");
+            return false;
+        }
+        catch(MalformedURLException e)
+        {
+            System.out.println("[MalformedURLException]: url error");
+            return false;
+        }
         catch(IOException e)
         {
-            System.out.println("Site Redirected too many times. Skipping. . .");
+            System.out.println("[IOException]");
             return false;
         }
         System.out.println();

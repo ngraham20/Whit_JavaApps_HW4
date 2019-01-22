@@ -5,30 +5,72 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 /**
  * WindowView Object
  * @author Nathaniel Graham
  * @version 1.0
  */
-class WindowView {
-    private JLabel dice1 = new DiceLabel();
-    private JLabel dice2 = new DiceLabel();
-    private JLabel dice3 = new DiceLabel();
-    private JLabel dice4 = new DiceLabel();
-    private JLabel dice5 = new DiceLabel();
-    private JPanel diceZone = new JPanel(new GridBagLayout());
-    private JPanel buttonZone = new JPanel(new BorderLayout());
-
-    private GridBagConstraints constraints = new GridBagConstraints();
+class WindowView extends JFrame{
+    private JLabel dice1 = new JLabel();
+    private JLabel dice2 = new JLabel();
+    private JLabel dice3 = new JLabel();
+    private JLabel dice4 = new JLabel();
+    private JLabel dice5 = new JLabel();
+    private JButton rollButton = new JButton("Roll");
+    private ArrayList<Dice> dice = new ArrayList<>();
+    private ArrayList<JLabel> diceLabels = new ArrayList<>();
 
     WindowView()
     {
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(800,400);
+        this.setLayout(new FlowLayout());
 
+        init();
     }
 
     void init()
     {
-        constraints.gridwidth = 5;
+
+        dice.add(new Dice(dice1));
+        dice.add(new Dice(dice2));
+        dice.add(new Dice(dice3));
+        dice.add(new Dice(dice4));
+        dice.add(new Dice(dice5));
+
+        this.add(dice1);
+        this.add(dice2);
+        this.add(dice3);
+        this.add(dice4);
+        this.add(dice5);
+
+        this.add(rollButton);
+
+        listeners();
+    }
+
+    private void listeners()
+    {
+        rollButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                roll();
+            }
+        });
+    }
+
+    private void roll()
+    {
+        for(Dice dice : this.dice)
+        {
+            Thread thread = new Thread(dice);
+            thread.start();
+
+        }
     }
 }

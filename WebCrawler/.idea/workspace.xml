@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="087849b0-fe30-4de7-a054-34b2c7b9ec39" name="Default Changelist" comment="" />
+    <list default="true" id="087849b0-fe30-4de7-a054-34b2c7b9ec39" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebCrawler/Crawler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebCrawler/Crawler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebCrawler/WebNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebCrawler/WebNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WebCrawler/WebNodeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WebCrawler/WebNodeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Crawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WebNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WebNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WebNodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WebNodeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Yatzee/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Yatzee/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Yatzee/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Yatzee/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Yatzee/src/DiceLabel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Yatzee/src/WindowView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Yatzee/src/WindowView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YatzeeRoller/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../YatzeeRoller/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YatzeeRoller/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../YatzeeRoller/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../YatzeeRoller/app/src/main/java/com/example/yatzeeroller/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../YatzeeRoller/app/src/main/java/com/example/yatzeeroller/MainActivity.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,12 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Crawler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-              <folding>
-                <element signature="e#1797#1798#0" expanded="true" />
-                <element signature="e#1832#1833#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="202">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
@@ -37,10 +49,7 @@
         <entry file="file://$PROJECT_DIR$/src/WebNodeTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="26" column="992" selection-start-line="26" selection-start-column="992" selection-end-line="26" selection-end-column="992" />
             </state>
           </provider>
         </entry>
@@ -48,12 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WebNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
-              <folding>
-                <element signature="e#1334#1335#0" expanded="true" />
-                <element signature="e#1366#1367#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -83,9 +88,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/WebNode.java" />
         <option value="$PROJECT_DIR$/src/Crawler.java" />
         <option value="$PROJECT_DIR$/src/WebNodeTest.java" />
+        <option value="$PROJECT_DIR$/src/WebNode.java" />
       </list>
     </option>
   </component>
@@ -124,7 +129,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547856982816" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548197265213" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Yatzee" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -170,9 +175,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10021322" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10134228" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -181,8 +186,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6728061" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.21343446" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.15580736" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35977337" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -205,9 +210,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/WebNodeTest.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/WebNodeTest.java</url>
           <line>26</line>
           <properties />
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -228,6 +239,13 @@
     <entry file="jrt://C:/Program Files/Java/jdk-10.0.1!/java.base/sun/net/www/protocol/https/HttpsURLConnectionImpl.class" />
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/net/URL.java" />
     <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/regex/Pattern.java" />
+    <entry file="file://$PROJECT_DIR$/src/ThreadManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -237,40 +255,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Crawler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="34" column="40" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-          <folding>
-            <element signature="e#1797#1798#0" expanded="true" />
-            <element signature="e#1832#1833#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="202">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WebNodeTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ThreadManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <caret line="26" column="992" selection-start-line="26" selection-start-column="992" selection-end-line="26" selection-end-column="992" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WebNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
-          <folding>
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
         </state>
       </provider>
     </entry>

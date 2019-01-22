@@ -36,7 +36,7 @@ public class Crawler implements Runnable {
         {
             results.addAll(node.scrapeNodeFor(expression));
         }
-        return new ArrayList<>();
+        return results;
     }
 
     private void resetVisited()

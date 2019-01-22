@@ -2,6 +2,9 @@ package com.example.yatzeeroller;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -54,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     private class Dice implements Runnable // TODO ONLY THE THREAD THAT CREATED A VIEW CAN TOUCH IT
     {
 
@@ -85,14 +86,26 @@ public class MainActivity extends AppCompatActivity {
         private void roll()
         {
             Random rand = new Random();
-            int side;
 
-            for(int i = 0; i < rand.nextInt(100) + 100; i++)
+            for(int i = 0; i < rand.nextInt(300) + 100; i++)
             {
-                side = rand.nextInt(6);
+                int side = rand.nextInt(6);
                 this.side = imageDrawables[side];
 
-                imageView.setImageResource(this.side);
+                final int _side = imageDrawables[side];
+
+                ((Activity) this.activity).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        imageView.setImageResource(_side);
+                    }
+                });
+
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
