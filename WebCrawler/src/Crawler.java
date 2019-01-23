@@ -18,19 +18,25 @@ public class Crawler implements Runnable {
 
     private int numSitesVisited;
     public static ArrayList<WebNode> visitedNodes = new ArrayList<>();
-    //public static HashMap<WebNode, Boolean> visited = new HashMap<>();
 
+    /** Default Constructor */
     Crawler()
     {
         WebNode.setTotal_nodes(0);
     }
 
+    /** Unused function */
     @Override
     public void run() {
 
     }
 
-    public ArrayList<String> scrape(String expression) throws IOException {
+    /**
+     * Scrapes all nodes, using a given expression
+     * @param expression the expression to scrape with
+     * @return all strings returned by the regular expression
+     */
+    public ArrayList<String> scrape(String expression) {
         ArrayList<String> results = new ArrayList<>();
         for(WebNode node : visitedNodes)
         {
@@ -39,6 +45,9 @@ public class Crawler implements Runnable {
         return results;
     }
 
+    /**
+     * Clears the visited nodes list
+     */
     private void resetVisited()
     {
         WebNode.setTotal_nodes(0);
@@ -46,7 +55,11 @@ public class Crawler implements Runnable {
         visitedNodes = new ArrayList<>();
     }
 
-    public void BFSNodeSearch(WebNode rootNode) throws IOException {
+    /**
+     * A Breadth-First-Search to generate and link websites together in an abstract tree
+     * @param rootNode the node to begin the tree
+     */
+    public void BFSNodeSearch(WebNode rootNode) {
         resetVisited();
         WebNode.incrementNodeCount(); // account for rootnode
         LinkedList<WebNode> currentLayer = new LinkedList<>();
@@ -66,6 +79,10 @@ public class Crawler implements Runnable {
         }
     }
 
+    /**
+     * Returns the visited nodes
+     * @return the visited nodes
+     */
     public ArrayList<WebNode> getVisitedNodes() {
         return visitedNodes;
     }

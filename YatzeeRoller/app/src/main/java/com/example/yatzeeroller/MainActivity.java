@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
 
     HashSet<Thread> activeThreads = new HashSet<>();
 
+    /**
+     * Initialize the dice, threads, and the FAB
+     * @param savedInstanceState the instanceState to use
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Roll all dice by starting their threads
+     */
     private void rollAll()
     {
         for(Thread thread: activeThreads)
@@ -57,7 +64,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class Dice implements Runnable // TODO ONLY THE THREAD THAT CREATED A VIEW CAN TOUCH IT
+    /**
+     * Private Dice Object class
+     */
+    private class Dice implements Runnable
     {
 
         private final int[] imageDrawables = {
@@ -72,17 +82,28 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView;
         Activity activity;
 
+        /**
+         * Constructor
+         * @param activity the activity context to use
+         * @param imageViewId the imageViewId to specify which imageView to modify
+         */
         Dice(Activity activity, int imageViewId)
         {
             this.activity = activity;
             this.imageView = this.activity.findViewById(imageViewId);
         }
 
+        /**
+         * When run, roll the dice
+         */
         @Override
         public void run() {
             roll();
         }
 
+        /**
+         * Roll the dice
+         */
         private void roll()
         {
             Random rand = new Random();

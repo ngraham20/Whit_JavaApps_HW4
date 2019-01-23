@@ -22,6 +22,10 @@ public class Dice implements Runnable {
             "dice_green_5.png",
             "dice_green_6.png"};
 
+    /**
+     * Constructor
+     * @param label the JLabel to update with a dice image
+     */
     Dice(JLabel label)
     {
         try {
@@ -36,11 +40,17 @@ public class Dice implements Runnable {
         }
     }
 
+    /**
+     * When run, the dice should roll
+     */
     @Override
     public void run() {
         roll();
     }
 
+    /**
+     * Roll the dice to display random sides, eventually landing on one
+     */
     private void roll()
     {
         Random rand = new Random();

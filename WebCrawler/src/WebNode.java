@@ -30,6 +30,10 @@ public class WebNode {
     public static final int MAX_SITES = 50;
     private static int total_nodes = 0;
 
+    /**
+     * Constructor
+     * @param url the url that the node represents
+     */
     WebNode(String url)
     {
         this.url = url;
@@ -38,41 +42,55 @@ public class WebNode {
         //Crawler.visited.put(this, true);
     }
 
+    /**
+     * Increments the total number of nodes
+     */
     public static void incrementNodeCount()
     {
         total_nodes++;
     }
 
+    /**
+     * returns the total number of nodes
+     * @return the number of nodes
+     */
     public static int getTotal_nodes()
     {
         return WebNode.total_nodes;
     }
 
+    /**
+     * Sets the total number of nodes
+     * @param num the number to set
+     */
     public static void setTotal_nodes(int num)
     {
         WebNode.total_nodes = num;
     }
 
-
+    /**
+     * returns the children of this node
+     * @return the children of this node
+     */
     public ArrayList<WebNode> getChildren() {
         return children;
     }
 
+    /**
+     * adds a child to this node
+     * @param child the child to add
+     */
     public void addChild(WebNode child)
     {
         children.add(child);
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public String getHtml()
-    {
-        return this.html;
-    }
-
-    public ArrayList<String> scrapeNodeFor(String expression) throws IOException {
+    /**
+     * Scrapes the current node given an expression to use
+     * @param expression the expression to scrape with
+     * @return a list of strings that the scrape returned
+     */
+    public ArrayList<String> scrapeNodeFor(String expression) {
         ArrayList<String> results = new ArrayList<>();
 
         try {
@@ -102,6 +120,10 @@ public class WebNode {
         return results;
     }
 
+    /**
+     * Scrapes the current site to find all other contained sites
+     * @return true or false
+     */
     public boolean findUrls() {
         if(total_nodes >= MAX_SITES)
         {

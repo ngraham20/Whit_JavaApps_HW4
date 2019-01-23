@@ -24,6 +24,9 @@ class WindowView extends JFrame{
     private ArrayList<Dice> dice = new ArrayList<>();
     private ArrayList<JLabel> diceLabels = new ArrayList<>();
 
+    /**
+     * Default Constructor
+     */
     WindowView()
     {
         this.setVisible(true);
@@ -34,6 +37,9 @@ class WindowView extends JFrame{
         init();
     }
 
+    /**
+     * Initialize variables and objects
+     */
     void init()
     {
 
@@ -54,6 +60,9 @@ class WindowView extends JFrame{
         listeners();
     }
 
+    /**
+     * Activate any listeners used
+     */
     private void listeners()
     {
         rollButton.addMouseListener(new MouseAdapter() {
@@ -64,6 +73,9 @@ class WindowView extends JFrame{
         });
     }
 
+    /**
+     * Roll all dice
+     */
     private void roll()
     {
         for(Dice dice : this.dice)
